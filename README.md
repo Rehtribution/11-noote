@@ -56,17 +56,14 @@ This is the eleventh Challenge homework assignment and will meet the acceptance 
 - NPM
     - Express
     - Inquirer
-    - Jest
     - FS
-    - RegEx
 
 ## Installation-Requirements
 - NPM
     - Express
     - Inquirer
-    - Jest
     - FS
-    - RegEx
+
     
 ## Installation
 In the terminal enter these commands:
@@ -77,14 +74,9 @@ npm i express
 npm i inquirer
 ```
 ```bash
-npm i jest
-```
-```bash
 npm i fs
 ```
-```bash
-npm i regex
-```
+
 
 ## Author
 
@@ -92,4 +84,4 @@ npm i regex
 
 ## Contributions
 
-- Help from tutor Anthony
+- Help from, Michelle, Paul, and tutor Anthony

@@ -66,50 +66,21 @@ app.post('/api/notes', (req, res) => {
         console.log("new note posted!");
     } catch (err) {
         throw err;
-        console.log("Something went wrong!");
     }
 });
 // POST end
 
-
-
-
-//functions
-function findById(id) {
-    const result = notesParse.filter(note => note.id === id)[0];
-    return result;
-}
-
+// Delete
 app.delete("/api/notes/:id", function (req, res) {
-    //read the data
-    dataNotes;
-    // parse the data
-    notesParse;
-    // assign the searched ID to a variable
-    const deleteThis = findById(req.params.id, notes);
-    // delete te note
-    if (deleteThis !== -1) {
-        notesParse.splice(deleteThis, 1);
-        res.status(204).send(notesParse[deleteThis]);
-    } else {
-        res.status(404).send();
-        console.log("Oops, something went wrong. Try again!");
-    }
+    //find the selected id
+    var deleteThis = req.params.id;
+    console.log(deleteThis);
 
-
-    //     let noteDelete = parseInt(req.params.id);
-
-    //     for (let i = 0; i < notes.length; i++) {
-    //         if (noteDelete === notes[i].id) {
-    //             notes.splice(i, 1);
-    //             let jsonNote = JSON.stringify(notes, null, 2);
-    //             fs.writeFile("./db/db.json", jsonNote, function (err) {
-    //                 if (err) throw err;
-    //                 console.log("Your note has been deleted!");
-    //                 res.json(notes);
-    //             });
-    //         }
-    //     }
+    // splice the selected id out of the array
+    notesParse.splice( deleteThis, 1);
+    res.status(204).send();
+    // location.reload();
+    console.log(notesParse);
 });
 
 // listener
