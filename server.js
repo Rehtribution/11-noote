@@ -5,16 +5,18 @@ const fs = require("fs");
 //requiring the data for the route
 const { notes } = require("./db/notes.json");
 
+
 const dataNotes = fs.readFileSync(
-    path.join(__dirname, "./db/notes.json"), "utf-8");
-    
+    path.join(__dirname, "./db/notes.json"),
+    "utf-8");
+// parse any existing notes into an array
 const notesParse = JSON.parse(dataNotes);
 
 //server specifications
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 9001;
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -24,16 +26,16 @@ function findById(id, notesArray) {
     return result;
 }
 
-// function createNote(body, notesArray) {
-//     const note = body;
-//     notesArray.push(note);
-    
-//     fs.writeFileSync(
-//         path.join(__dirname, "./db/notes.json"),
-//         JSON.stringify({ notes:notesArray }, null, 2)
-//     );
-//     return note;
-// };
+function createNote(body, notesArray) {
+    const note = body;
+    notesArray.push(note);
+
+    fs.writeFileSync(
+        path.join(__dirname, "./db/notes.json"),
+        JSON.stringify({ notes: notesArray }, null, 2)
+    );
+    return note;
+};
 
 //The gets start
 // route type to reference the data { notes }
@@ -62,34 +64,27 @@ app.get('/notes', (req, res) => {
 // POSTS start
 // write new note to the notes.json file
 app.post('/api/notes', (req, res) => {
-    // res.send("this is a post!")
-    // console.log("this POST");
-    // set id based on what the next index of the array will be
-
-    notesParse.push(req.body);
-    fs.writeFileSync(
-        path.join(__dirname, "./db/notes.json"),
-        JSON.stringify(notesParse),
-        "utf-8"
-    );
+    //parse existing notes into an array and assign id's
+    req.body.id = notesParse.length;
+    console.log(notesParse);
+    try { 
+        // push new note into the array
+        notesParse.push(req.body);
+        //writes the new note into the database file
+        fs.writeFileSync(
+            path.join(__dirname, "./db/notes.json"),
+            JSON.stringify(notesParse),
+            "utf-8"
+        );
     res.json("note success!")
-
-
-    //     req.body.id = notes.length.toString();
-
-    // if (!validateNote(req.body)) {
-    //     res.status(400).send('The note is not properly formatted.');
-    // } else {
-    //     const note = createNote(req.body, notes);
-    //     res.json(note);
-    // }
+    console.log("new note posted!");
+    } catch (err) {
+            throw err;
+            console.log("Something went wrong!");
+    }
 });
+
 //posts end
-
-
-
-
-
 
 
 //pauls nf delete code. need to work on this and solve the issue.
