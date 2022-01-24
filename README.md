@@ -36,13 +36,16 @@ This is the eleventh Challenge homework assignment and will meet the acceptance 
 
 
 ## Screenshot/Media
-![homepage screenshot](public\assets\images\Screenshot 1.png "homepage")
+![homepage screenshot](public\assets\images\Screenshot 1.jpg "homepage")
 ![screenshot 2](public\assets\images\Screenshot 2.png "second")
 ![screenshot 3](public\assets\images\Screenshot 3.png "third")
 
 
 ## Deployed Link
+GitHub:
 - https://rehtribution.github.io/11-noote/
+Heroku:
+- https://tranquil-fortress-15079.herokuapp.com/
 
 ## Usage
 - Open the link
