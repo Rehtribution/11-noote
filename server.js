@@ -6,12 +6,6 @@ const fs = require("fs");
 const { notes } = require("./db/notes.json");
 
 
-const dataNotes = fs.readFileSync(
-    path.join(__dirname, "./db/notes.json"),
-    "utf-8");
-// parse any existing notes into an array
-const notesParse = JSON.parse(dataNotes);
-
 //server specifications
 const express = require("express");
 const app = express();
@@ -20,24 +14,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
-//functions
-function findById(id, notesArray) {
-    const result = notesArray.filter(note => note.id === id)[0];
-    return result;
-}
+// consts that will be used later. Pulled out to global for dry-er code.
+// reads the data in the database file
+const dataNotes = fs.readFileSync(
+    path.join(__dirname, "./db/notes.json"),
+    "utf-8");
+// parse any existing notes into an array
+const notesParse = JSON.parse(dataNotes);
 
-function createNote(body, notesArray) {
-    const note = body;
-    notesArray.push(note);
-
-    fs.writeFileSync(
-        path.join(__dirname, "./db/notes.json"),
-        JSON.stringify({ notes: notesArray }, null, 2)
-    );
-    return note;
-};
-
-//The gets start
+// GET start
 // route type to reference the data { notes }
 app.get('/api/notes', (req, res) => {
     res.json(notesParse);
@@ -59,15 +44,16 @@ app.get('/', (req, res) => {
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
 });
-//gets end
+// GET end
 
-// POSTS start
+// POST start
 // write new note to the notes.json file
 app.post('/api/notes', (req, res) => {
     //parse existing notes into an array and assign id's
     req.body.id = notesParse.length;
     console.log(notesParse);
-    try { 
+
+    try {
         // push new note into the array
         notesParse.push(req.body);
         //writes the new note into the database file
@@ -76,33 +62,55 @@ app.post('/api/notes', (req, res) => {
             JSON.stringify(notesParse),
             "utf-8"
         );
-    res.json("note success!")
-    console.log("new note posted!");
+        res.json("note success!")
+        console.log("new note posted!");
     } catch (err) {
-            throw err;
-            console.log("Something went wrong!");
+        throw err;
+        console.log("Something went wrong!");
     }
 });
+// POST end
 
-//posts end
 
 
-//pauls nf delete code. need to work on this and solve the issue.
-// app.delete("/api/notes/:id", function (req, res) {
-//     let noteDelete = parseInt(req.params.id);
 
-//     for (let i = 0; i < notes.length; i++) {
-//         if (noteDelete === notes[i].id) {
-//             notes.splice(i, 1);
-//             let jsonNote = JSON.stringify(notes, null, 2);
-//             fs.writeFile("./db/db.json", jsonNote, function (err) {
-//                 if (err) throw err;
-//                 console.log("Your note has been deleted!");
-//                 res.json(notes);
-//             });
-//         }
-//     }
-// });
+//functions
+function findById(id) {
+    const result = notesParse.filter(note => note.id === id)[0];
+    return result;
+}
+
+app.delete("/api/notes/:id", function (req, res) {
+    //read the data
+    dataNotes;
+    // parse the data
+    notesParse;
+    // assign the searched ID to a variable
+    const deleteThis = findById(req.params.id, notes);
+    // delete te note
+    if (deleteThis !== -1) {
+        notesParse.splice(deleteThis, 1);
+        res.status(204).send(notesParse[deleteThis]);
+    } else {
+        res.status(404).send();
+        console.log("Oops, something went wrong. Try again!");
+    }
+
+
+    //     let noteDelete = parseInt(req.params.id);
+
+    //     for (let i = 0; i < notes.length; i++) {
+    //         if (noteDelete === notes[i].id) {
+    //             notes.splice(i, 1);
+    //             let jsonNote = JSON.stringify(notes, null, 2);
+    //             fs.writeFile("./db/db.json", jsonNote, function (err) {
+    //                 if (err) throw err;
+    //                 console.log("Your note has been deleted!");
+    //                 res.json(notes);
+    //             });
+    //         }
+    //     }
+});
 
 // listener
 app.listen(PORT, () => {
