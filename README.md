@@ -36,7 +36,8 @@ This is the eleventh Challenge homework assignment and will meet the acceptance 
 
 
 ## Screenshot/Media
-
+public\assets\images\Screenshot 1.png
+public\assets\images\Screenshot 1.jpg
 
 
 ## Deployed Link
