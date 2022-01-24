@@ -36,15 +36,15 @@ This is the eleventh Challenge homework assignment and will meet the acceptance 
 
 
 ## Screenshot/Media
-<h3 align="center">Link to Walkthrough</h3>
-<h3 align="center">VIDEO LINK HERE</h3>
+
 
 
 ## Deployed Link
--
+- https://rehtribution.github.io/11-noote/
 
 ## Usage
--
+- Open the link
+- Type in your notes
 
 ## Built With
 
