@@ -36,8 +36,9 @@ This is the eleventh Challenge homework assignment and will meet the acceptance 
 
 
 ## Screenshot/Media
-public\assets\images\Screenshot 1.png
-public\assets\images\Screenshot 1.jpg
+![homepage screenshot](public\assets\images\Screenshot 1.png "homepage")
+![screenshot 2](public\assets\images\Screenshot 2.png "second")
+![screenshot 3](public\assets\images\Screenshot 3.png "third")
 
 
 ## Deployed Link
