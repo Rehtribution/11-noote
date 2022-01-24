@@ -5,6 +5,11 @@ const fs = require("fs");
 //requiring the data for the route
 const { notes } = require("./db/notes.json");
 
+const dataNotes = fs.readFileSync(
+    path.join(__dirname, "./db/notes.json"), "utf-8");
+    
+const notesParse = JSON.parse(dataNotes);
+
 //server specifications
 const express = require("express");
 const app = express();
@@ -33,10 +38,7 @@ function findById(id, notesArray) {
 //The gets start
 // route type to reference the data { notes }
 app.get('/api/notes', (req, res) => {
-    const dataNotes = fs.readFileSync(
-        path.join(__dirname, "./db/notes.json"), "utf-8");
-        const notesParse = JSON.parse(dataNotes);
-        res.json(notesParse);
+    res.json(notesParse);
 });
 
 app.get('/api/notes/:id', (req, res) => {
@@ -57,17 +59,21 @@ app.get('/notes', (req, res) => {
 });
 //gets end
 
-
-
-//the posts start
+// POSTS start
 // write new note to the notes.json file
 app.post('/api/notes', (req, res) => {
-    res.send("this is a post!")
-    console.log("this POST");
+    // res.send("this is a post!")
+    // console.log("this POST");
     // set id based on what the next index of the array will be
-    // const dataNotes = fs.readFileSync(
-    //     path.join(__dirname, "./db/notes.json"), "utf-8");
-        
+
+    notesParse.push(req.body);
+    fs.writeFileSync(
+        path.join(__dirname, "./db/notes.json"),
+        JSON.stringify(notesParse),
+        "utf-8"
+    );
+    res.json("note success!")
+
 
     //     req.body.id = notes.length.toString();
 
