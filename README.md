@@ -18,8 +18,9 @@
 <h2 align="center">Project-Description</h2>
 NOOTE is an application to help users be able to write and save notes so they can organize their thoughts and keep track of tasks they need to complete.
 
-This is the eleventh Challenge homework assignment and will meet the acceptance criteria listed below:
+<h2 align="center">User Story</h2>
 
+```
 - GIVEN a note-taking application
 - WHEN I open the Note Taker
 - THEN I am presented with a landing page with a link to a notes page
@@ -33,20 +34,25 @@ This is the eleventh Challenge homework assignment and will meet the acceptance 
 - THEN that note appears in the right-hand column
 - WHEN I click on the Write icon in the navigation at the top of the page
 - THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
-
+```
 
 ## Screenshot/Media
-![homepage screenshot](public\assets\images\Screenshot 1.jpg "homepage")
-![screenshot 2](public\assets\images\Screenshot 2.png "second")
-![screenshot 3](public\assets\images\Screenshot 3.png "third")
+
+![homepage screenshot](https://github.com/Rehtribution/11-noote/blob/d8a07a6e23947c8e9dcccc675be4ab21dd1ef2ca/public/assets/images/Screenshot%201.jpg)
+
+![screenshot 2](https://github.com/Rehtribution/11-noote/blob/d8a07a6e23947c8e9dcccc675be4ab21dd1ef2ca/public/assets/images/Screenshot%202.png)
+
+![screenshot 3](https://github.com/Rehtribution/11-noote/blob/d8a07a6e23947c8e9dcccc675be4ab21dd1ef2ca/public/assets/images/Screenshot%203.png)
 
 
 ## Deployed Link
 GitHub:
-- https://rehtribution.github.io/11-noote/
-- 
+
+[![GitHub-Link - ClickHere](https://img.shields.io/badge/GitHub--Link-ClickHere-blue?style=for-the-badge)](https://rehtribution.github.io/11-noote/)
+
 Heroku:
-- https://tranquil-fortress-15079.herokuapp.com/
+
+[![Heroku-Link - ClickHere](https://img.shields.io/badge/HerokuLink-ClickHere-purple?style=for-the-badge)](https://tranquil-fortress-15079.herokuapp.com)
 
 ## Usage
 - Open the link
