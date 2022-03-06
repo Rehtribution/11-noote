@@ -45,12 +45,9 @@ NOOTE is an application to help users be able to write and save notes so they ca
 ![screenshot 3](https://github.com/Rehtribution/11-noote/blob/d8a07a6e23947c8e9dcccc675be4ab21dd1ef2ca/public/assets/images/Screenshot%203.png)
 
 
-## Deployed Link
-GitHub:
+## Deployed Links
 
 [![GitHub-Link - ClickHere](https://img.shields.io/badge/GitHub--Link-ClickHere-blue?style=for-the-badge)](https://rehtribution.github.io/11-noote/)
-
-Heroku:
 
 [![Heroku-Link - ClickHere](https://img.shields.io/badge/HerokuLink-ClickHere-purple?style=for-the-badge)](https://tranquil-fortress-15079.herokuapp.com)
 
@@ -96,4 +93,4 @@ npm i fs
 
 ## Contributions
 
-- Help from, Michelle, Paul, and tutor Anthony
+- Help from, Michelle, Paul, and Anthony
