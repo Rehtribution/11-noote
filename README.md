@@ -4,15 +4,15 @@
 
   [Description](#Project-Description)
   
-  [Installation-Requirements](##Installation-Requirements)
+  [Installation-Requirements](#Installation-Requirements)
   
-  [Installation](##Installation)
+  [Installation](#Installation)
   
-  [Usage](##Usage)
+  [Usage](#Usage)
   
-  [Author](##Author) 
+  [Author](#Author) 
 
-  [Contributions](##Contributions)
+  [Contributions](#Contributions)
   
 
 <h2 align="center">Project-Description</h2>
